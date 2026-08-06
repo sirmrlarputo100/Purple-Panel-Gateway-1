@@ -883,7 +883,7 @@ from bot_sales import run_bot  # <--- اضافه کن
 # ── در بخش startup ──
 @app.on_event("startup")
 async def startup():
-    asyncio.create_task(central.heartbeat_loop())
+ # asyncio.create_task(central.heartbeat_loop())
     global http_client
     limits = httpx.Limits(max_connections=500, max_keepalive_connections=100)
     timeout = httpx.Timeout(30.0, connect=10.0)
