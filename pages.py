@@ -1,6 +1,5 @@
 # pages.py - Purple-Panel v1.0
 # 🟣 Customized by @AghaBanafshi
-# Fully responsive | Floating menu | English/Persian
 
 LOGIN_HTML = r"""<!DOCTYPE html>
 <html lang="fa" dir="rtl">
@@ -71,7 +70,7 @@ document.getElementById('form').addEventListener('submit',async e=>{e.preventDef
 DASHBOARD_HTML = r"""<!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Purple-Panel v1.0</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -88,7 +87,7 @@ body::before{content:'';position:fixed;inset:0;z-index:-1;background:radial-grad
 ::-webkit-scrollbar-track{background:var(--bg)}
 ::-webkit-scrollbar-thumb{background:var(--bg2);border-radius:4px}
 a{color:inherit;text-decoration:none}
-/* ── منوی معلق ── */
+
 .floating-menu{position:fixed;bottom:24px;right:24px;z-index:300;display:flex;flex-direction:column;align-items:center;gap:8px}
 .fm-toggle{width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,#8B5CF6,#6D28D9);border:none;color:#fff;font-size:24px;cursor:pointer;box-shadow:0 4px 24px rgba(139,92,246,0.4);transition:all 0.3s cubic-bezier(0.16,1,0.3,1);position:relative;display:flex;align-items:center;justify-content:center}
 .fm-toggle::after{content:'';position:absolute;inset:-3px;border-radius:50%;border:1.5px solid var(--accent);opacity:0.4;animation:ringPulse 2.4s ease-in-out infinite}
@@ -101,7 +100,7 @@ a{color:inherit;text-decoration:none}
 .fm-item:hover{background:var(--accent-d);color:var(--accent);transform:scale(1.08)}
 .fm-item:active{transform:scale(0.92)}
 .fm-item i{font-size:18px}
-/* ── سایدبار (برای دسکتاپ) ── */
+
 .sidebar{position:fixed;top:0;right:0;bottom:0;width:220px;background:var(--bg2);border-left:1px solid var(--card-b);padding:20px 14px;display:flex;flex-direction:column;gap:4px;z-index:100;transition:transform 0.3s cubic-bezier(0.16,1,0.3,1);backdrop-filter:blur(16px)}
 .sidebar .logo{display:flex;align-items:center;gap:10px;padding-bottom:16px;border-bottom:1px solid var(--card-b);margin-bottom:12px}
 .sidebar .logo-icon{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#8B5CF6,#6D28D9);display:flex;align-items:center;justify-content:center;color:#fff;font-size:18px}
@@ -116,7 +115,7 @@ a{color:inherit;text-decoration:none}
 .sb-footer button:hover{background:var(--card-b);color:var(--t1)}
 .sb-footer .logout{background:var(--red-bg);color:var(--red-t);border-color:rgba(239,68,68,0.15)}
 .sb-footer .logout:hover{background:rgba(239,68,68,0.15)}
-/* ── مین ── */
+
 .main{margin-right:220px;padding:20px 24px 80px;flex:1;min-height:100vh}
 .pg{display:none;animation:fadePage 0.35s cubic-bezier(0.16,1,0.3,1)}
 .pg.active{display:block}
@@ -197,7 +196,6 @@ a{color:inherit;text-decoration:none}
 <body>
 <div class="toast" id="toast"></div>
 
-<!-- منوی معلق (موبایل) -->
 <div class="floating-menu" id="floatingMenu">
 <div class="fm-items" id="fmItems">
 <button class="fm-item" onclick="toggleTheme()" title="تغییر تم"><i class="ti ti-sun" id="themeIcon"></i></button>
@@ -209,7 +207,6 @@ a{color:inherit;text-decoration:none}
 <button class="fm-toggle" id="fmToggle" onclick="toggleMenu()"><i class="ti ti-menu-2"></i></button>
 </div>
 
-<!-- سایدبار (دسکتاپ) -->
 <div class="sidebar" id="sidebar">
 <div class="logo"><div class="logo-icon"><i class="ti ti-brand-azure"></i></div><div><div class="logo-name">Purple-Panel</div><div class="logo-sub">v1.0</div></div></div>
 <div class="sb-item active" data-pg="overview"><i class="ti ti-layout-dashboard"></i> داشبورد</div>
@@ -225,10 +222,8 @@ a{color:inherit;text-decoration:none}
 </div>
 </div>
 
-<!-- محتوای اصلی -->
 <div class="main" id="mainContent">
 
-<!-- داشبورد -->
 <section class="pg active" id="pg-overview">
 <div class="topbar"><div><div class="tb-title"><i class="ti ti-layout-dashboard"></i> داشبورد</div><div class="tb-sub" id="lastUpdate">در حال بارگذاری...</div></div><div class="tb-actions"><button class="btn btn-p btn-sm" onclick="refreshAll()"><i class="ti ti-refresh"></i> رفرش</button></div></div>
 <div class="metrics" id="metricsWrap">
@@ -242,7 +237,6 @@ a{color:inherit;text-decoration:none}
 <div style="font-size:10px;color:var(--t3);text-align:center;padding-top:10px;border-top:1px solid var(--card-b);margin-top:10px">🟣 Purple-Panel v1.0 · <a href="https://github.com/TheAghaBanafshi" target="_blank" style="color:var(--accent2)">github.com/TheAghaBanafshi</a> · ✨ <a href="https://t.me/AghaBanafshi" target="_blank" style="color:var(--accent2)">@AghaBanafshi</a></div>
 </section>
 
-<!-- کانفیگ‌ها -->
 <section class="pg" id="pg-links">
 <div class="topbar"><div><div class="tb-title"><i class="ti ti-link-plus"></i> کانفیگ‌ها</div><div class="tb-sub">مدیریت کانفیگ‌های VLESS</div></div><div class="tb-actions"><button class="btn btn-p btn-sm" onclick="refreshAll()"><i class="ti ti-refresh"></i></button></div></div>
 <div class="card" style="margin-bottom:12px"><div class="card-title"><i class="ti ti-square-rounded-plus"></i> ساخت کانفیگ جدید</div>
@@ -252,31 +246,26 @@ a{color:inherit;text-decoration:none}
 <div class="empty" id="linksEmpty"><i class="ti ti-link-off"></i><p>هنوز کانفیگی وجود ندارد</p></div>
 </section>
 
-<!-- ترافیک -->
 <section class="pg" id="pg-traffic">
 <div class="topbar"><div><div class="tb-title"><i class="ti ti-chart-area"></i> ترافیک</div><div class="tb-sub">مصرف پهنای باند</div></div></div>
 <div class="card"><div class="card-title"><i class="ti ti-activity"></i> روند مصرف</div><div class="ch" style="height:280px"><canvas id="chart3"></canvas></div></div>
 </section>
 
-<!-- اتصالات -->
 <section class="pg" id="pg-connections">
 <div class="topbar"><div><div class="tb-title"><i class="ti ti-plug-connected"></i> اتصالات فعال</div><div class="tb-sub">در لحظه</div></div></div>
 <div class="card"><div id="connsGrid"><div class="empty"><i class="ti ti-plug-off"></i><p>اتصالی نیست</p></div></div></div>
 </section>
 
-<!-- امنیت -->
 <section class="pg" id="pg-security">
 <div class="topbar"><div><div class="tb-title"><i class="ti ti-shield-lock"></i> امنیت</div></div></div>
 <div class="g2"><div class="card"><div class="card-title"><i class="ti ti-lock"></i> رمزنگاری</div><div class="sr"><span class="sr-k">TLS</span><span class="sr-v" style="color:var(--green-t)">فعال ✓</span></div><div class="sr"><span class="sr-k">UUID Auth</span><span class="sr-v" style="color:var(--green-t)">فعال ✓</span></div><div class="sr"><span class="sr-k">Fingerprint</span><span class="sr-v">Chrome</span></div></div><div class="card"><div class="card-title"><i class="ti ti-key"></i> تغییر رمز</div><div style="display:flex;flex-direction:column;gap:8px"><input type="password" id="cpCur" placeholder="رمز فعلی" style="padding:9px 12px;border-radius:8px;border:1px solid var(--card-b);background:rgba(0,0,0,0.12);color:var(--t1);font-family:inherit;font-size:12px;outline:none"><input type="password" id="cpNew" placeholder="رمز جدید" style="padding:9px 12px;border-radius:8px;border:1px solid var(--card-b);background:rgba(0,0,0,0.12);color:var(--t1);font-family:inherit;font-size:12px;outline:none"><input type="password" id="cpCf" placeholder="تکرار رمز جدید" style="padding:9px 12px;border-radius:8px;border:1px solid var(--card-b);background:rgba(0,0,0,0.12);color:var(--t1);font-family:inherit;font-size:12px;outline:none"><button class="btn btn-p" onclick="changePassword()"><i class="ti ti-shield-check"></i> تغییر رمز</button></div></div></div>
 </section>
 
-<!-- لاگ‌ها -->
 <section class="pg" id="pg-logs">
 <div class="topbar"><div><div class="tb-title"><i class="ti ti-history"></i> لاگ فعالیت‌ها</div></div></div>
 <div class="card"><div id="logsList"><div class="empty"><i class="ti ti-history-toggle"></i><p>لاگی وجود ندارد</p></div></div></div>
 </section>
 
-<!-- تنظیمات -->
 <section class="pg" id="pg-settings">
 <div class="topbar"><div><div class="tb-title"><i class="ti ti-settings"></i> تنظیمات</div></div></div>
 <div class="card"><div class="card-title"><i class="ti ti-server-2"></i> اطلاعات سرور</div>
@@ -289,20 +278,13 @@ a{color:inherit;text-decoration:none}
 </div>
 
 <script>
-// ── Theme ──
 let isDark=localStorage.getItem('pp-theme')!=='light';
 function applyTheme(dark){document.documentElement.setAttribute('data-theme',dark?'dark':'light');const icon=dark?'ti-sun':'ti-moon',label=dark?'تم روشن':'تم تاریک';['themeIcon','themeIcon2'].forEach(id=>{const el=document.getElementById(id);if(el)el.className='ti '+icon});['themeLabel'].forEach(id=>{const el=document.getElementById(id);if(el)el.textContent=label})}
 function toggleTheme(){isDark=!isDark;localStorage.setItem('pp-theme',isDark?'dark':'light');applyTheme(isDark)}
 applyTheme(isDark);
-
-// ── Toast ──
 function toast(msg,type=''){const t=document.getElementById('toast');t.textContent=msg;t.className='toast show'+(type?' '+type:'');setTimeout(()=>t.classList.remove('show'),2500)}
-
-// ── Menu ──
 function toggleMenu(){document.getElementById('fmItems').classList.toggle('open')}
 function closeMenu(){document.getElementById('fmItems').classList.remove('open')}
-
-// ── Sidebar ──
 function navTo(name){
 document.querySelectorAll('.sb-item').forEach(el=>el.classList.toggle('active',el.dataset.pg===name));
 document.querySelectorAll('.pg').forEach(el=>el.classList.toggle('active',el.id==='pg-'+name));
@@ -310,20 +292,14 @@ closeMenu();window.scrollTo({top:0,behavior:'smooth'});
 if(name==='links')loadLinks();if(name==='traffic')loadTraffic();if(name==='connections')loadConns();if(name==='logs')loadLogs();
 }
 document.querySelectorAll('.sb-item').forEach(el=>el.addEventListener('click',()=>navTo(el.dataset.pg)));
-
-// ── Auth ──
 async function authF(url,opts={}){const r=await fetch(url,opts);if(r.status===401){location.href='/login';throw new Error('unauthorized')}return r}
 async function logout(){try{await fetch('/api/logout',{method:'POST'})}catch(e){}location.href='/login'}
-
-// ── Utils ──
 function fmtB(b){if(!b||b===0)return '0 B';if(b<1024)return b+' B';if(b<1024**2)return (b/1024).toFixed(1)+' KB';if(b<1024**3)return (b/1024**2).toFixed(2)+' MB';return (b/1024**3).toFixed(2)+' GB'}
 function toFa(n){return String(n).replace(/\d/g,d=>'۰۱۲۳۴۵۶۷۸۹'[d])}
 function esc(s){return String(s||'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
 function daysLeft(exp){if(!exp)return null;return Math.ceil((new Date(exp)-Date.now())/(864e5))}
 function expChip(exp,expired){if(expired)return '⛔ منقضی';if(!exp)return '♾ نامحدود';const d=daysLeft(exp);if(d<=0)return '⛔ منقضی';if(d<=3)return '⚠️ '+toFa(d)+' روز';return '✅ '+toFa(d)+' روز'}
 function protoBadge(p){const m={'vless-ws':'VLESS/WS','xhttp':'XHTTP Ultra'};return m[p]||p}
-
-// ── Stats ──
 let chart1,chart2,chart3;
 async function fetchStats(){
 try{const r=await authF('/stats'),d=await r.json();
@@ -336,35 +312,20 @@ document.getElementById('uptimeInline').textContent=d.uptime||'—';
 document.getElementById('lastUpdate').textContent='آخرین بروزرسانی: '+new Date().toLocaleTimeString('fa-IR');
 if(d.hourly){const labels=Object.keys(d.hourly).sort(),vals=labels.map(k=>+(d.hourly[k]/1024**2).toFixed(2));if(chart1){chart1.data.labels=labels;chart1.data.datasets[0].data=vals;chart1.update()}}
 }catch(e){console.error(e)}}
-
 function initCharts(){
 const ctx1=document.getElementById('chart1')?.getContext('2d');if(ctx1){chart1=new Chart(ctx1,{type:'line',data:{labels:[],datasets:[{label:'MB',data:[],borderColor:'#8B5CF6',backgroundColor:'rgba(139,92,246,0.08)',fill:true,tension:0.4,pointRadius:0}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{x:{grid:{display:false}},y:{beginAtZero:true}}}})}
 const ctx2=document.getElementById('chart2')?.getContext('2d');if(ctx2){chart2=new Chart(ctx2,{type:'doughnut',data:{labels:['VLESS/WS','XHTTP','HTTP'],datasets:[{data:[60,25,15],backgroundColor:['#8B5CF6','#10B981','#6D28D9']}]},options:{responsive:true,maintainAspectRatio:false,cutout:'70%',plugins:{legend:{position:'bottom',labels:{color:'var(--t2)',font:{size:10}}}}}})}
 const ctx3=document.getElementById('chart3')?.getContext('2d');if(ctx3){chart3=new Chart(ctx3,{type:'line',data:{labels:[],datasets:[{label:'مصرف (MB)',data:[],borderColor:'#8B5CF6',backgroundColor:'rgba(139,92,246,0.06)',fill:true,tension:0.4,pointRadius:0}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{x:{grid:{display:false}},y:{beginAtZero:true}}}})}
 }
-
-// ── Links ──
 let allLinks=[];
 async function loadLinks(){try{const r=await authF('/api/links'),d=await r.json();allLinks=d.links||[];const grid=document.getElementById('linksGrid'),empty=document.getElementById('linksEmpty');if(!allLinks.length){grid.innerHTML='';empty.style.display='block';return}empty.style.display='none';grid.innerHTML=allLinks.map(l=>{const pct=l.limit_bytes?Math.min(100,l.used_bytes/l.limit_bytes*100):0;const lim=l.limit_bytes?fmtB(l.limit_bytes):'∞';return `<div style="background:var(--card);border:1px solid var(--card-b);border-radius:var(--radius);padding:12px 14px;margin-bottom:6px;display:flex;flex-wrap:wrap;align-items:center;gap:8px;transition:0.2s" onmouseenter="this.style.borderColor='var(--card-bh)'" onmouseleave="this.style.borderColor=''"><div style="flex:1;min-width:120px"><div style="font-weight:700;font-size:13px;color:var(--t1)">${esc(l.label)}</div><div style="font-size:10px;color:var(--t3)">${l.uuid.slice(0,10)}…</div></div><div style="flex:0 0 100px"><div style="font-size:11px;color:var(--t2)">${fmtB(l.used_bytes)} / ${lim}</div><div style="height:4px;border-radius:3px;background:var(--accent-d);margin-top:3px"><div style="height:100%;border-radius:3px;width:${pct}%;background:${pct>90?'var(--red)':pct>70?'var(--amber)':'var(--green)'}"></div></div></div><div style="font-size:10px;color:var(--t3)">${expChip(l.expires_at,l.expired)}</div><div style="display:flex;gap:4px"><button class="btn btn-sm btn-g" onclick="navigator.clipboard.writeText('${esc(l.vless_link)}').then(()=>toast('کپی شد','ok'))"><i class="ti ti-copy"></i></button><button class="btn btn-sm btn-d" onclick="deleteLink('${l.uuid}')"><i class="ti ti-trash"></i></button></div></div>`}).join('')}catch(e){console.error(e)}}
 async function createLink(){const label=document.getElementById('nlLabel').value.trim()||'کانفیگ';const val=document.getElementById('nlVal').value;const exp=document.getElementById('nlExp').value;try{await authF('/api/links',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({label,limit_value:val||0,limit_unit:'MB',expires_days:exp||0,protocol:'vless-ws',fingerprint:'chrome'})});toast('کانفیگ ساخته شد ✓','ok');['nlLabel','nlVal','nlExp'].forEach(id=>document.getElementById(id).value='');loadLinks()}catch(e){toast('خطا','err')}}
 async function deleteLink(uuid){if(!confirm('حذف؟'))return;try{await authF('/api/links/'+uuid,{method:'DELETE'});toast('حذف شد ✓','ok');loadLinks()}catch(e){toast('خطا','err')}}
-
-// ── Traffic ──
 async function loadTraffic(){try{const r=await authF('/stats'),d=await r.json();if(d.hourly&&chart3){const labels=Object.keys(d.hourly).sort(),vals=labels.map(k=>+(d.hourly[k]/1024**2).toFixed(2));chart3.data.labels=labels;chart3.data.datasets[0].data=vals;chart3.update()}}catch(e){}}
-
-// ── Connections ──
 async function loadConns(){try{const r=await authF('/api/connections'),d=await r.json();const grid=document.getElementById('connsGrid');const conns=d.connections||[];if(!conns.length){grid.innerHTML='<div class="empty"><i class="ti ti-plug-off"></i><p>اتصالی نیست</p></div>';return}grid.innerHTML=conns.slice(0,10).map(c=>`<div style="display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid rgba(139,92,246,0.04);font-size:12px"><span style="color:var(--t1)">${esc(c.ip)}</span><span style="color:var(--t3)">${c.bytes_fmt||'0 B'}</span></div>`).join('')}catch(e){}}
-
-// ── Logs ──
 async function loadLogs(){try{const r=await authF('/api/activity'),d=await r.json();const list=document.getElementById('logsList');const logs=(d.logs||[]).slice(-10).reverse();if(!logs.length){list.innerHTML='<div class="empty"><i class="ti ti-history-toggle"></i><p>لاگی وجود ندارد</p></div>';return}list.innerHTML=logs.map(l=>`<div style="padding:6px 0;border-bottom:1px solid rgba(139,92,246,0.03);font-size:11.5px"><span style="color:var(--t2)">${esc(l.message)}</span><span style="color:var(--t3);font-size:9.5px;display:block">${new Date(l.time).toLocaleString('fa-IR')}</span></div>`).join('')}catch(e){}}
-
-// ── Password ──
 async function changePassword(){const cur=document.getElementById('cpCur').value,nw=document.getElementById('cpNew').value,cf=document.getElementById('cpCf').value;if(!cur||!nw||!cf){toast('همه فیلدها را پر کنید','err');return}if(nw!==cf){toast('تکرار رمز اشتباه','err');return}try{await authF('/api/change-password',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({current_password:cur,new_password:nw})});toast('رمز تغییر کرد ✓','ok');['cpCur','cpNew','cpCf'].forEach(id=>document.getElementById(id).value='')}catch(e){toast('خطا','err')}}
-
-// ── Refresh ──
 function refreshAll(){fetchStats();loadLinks();loadTraffic();loadConns();loadLogs();toast('رفرش شد','ok')}
-
-// ── Init ──
 document.addEventListener('DOMContentLoaded',async()=>{
 initCharts();
 document.getElementById('setHost').textContent=location.host;
@@ -374,60 +335,3 @@ setInterval(()=>{if(document.getElementById('pg-links').classList.contains('acti
 });
 </script>
 </body></html>"""
-
-def get_public_page_html(uuid_key: str) -> str:
-    return f"""<!DOCTYPE html>
-<html lang="fa" dir="rtl">
-<head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Purple-Panel Sub</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.19.0/dist/tabler-icons.min.css">
-<style>
-*{{margin:0;padding:0;box-sizing:border-box}}
-:root{{--bg:#0a0618;--card:#1a0d30;--card-b:rgba(139,92,246,0.12);--accent:#8B5CF6;--accent2:#A78BFA;--t1:#F0E8FF;--t2:#9C8ABF;--t3:#6D4A9E;--green:#10B981;--green-bg:rgba(16,185,129,0.08);--green-t:#34D399;--red:#EF4444;--red-bg:rgba(239,68,68,0.08);--red-t:#F87171}}
-[data-theme="light"]{{--bg:#F5F0FF;--card:#FFFFFF;--card-b:rgba(139,92,246,0.12);--accent:#7C3AED;--accent2:#6D28D9;--t1:#1A0E30;--t2:#4A2D6E;--t3:#7A5DA6}}
-html,body{{min-height:100%;background:var(--bg);font-family:'Vazirmatn',sans-serif;color:var(--t1);font-size:14px;padding:20px}}
-.wrap{{max-width:800px;margin:0 auto}}
-.brand{{display:flex;align-items:center;gap:12px;margin-bottom:20px}}
-.brand-icon{{width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,#8B5CF6,#6D28D9);display:flex;align-items:center;justify-content:center;color:#fff;font-size:20px}}
-.brand-name{{font-size:16px;font-weight:800;color:var(--t1)}}
-.brand-sub{{font-size:10px;color:var(--t3)}}
-.card{{background:var(--card);border:1px solid var(--card-b);border-radius:16px;padding:18px 20px;margin-bottom:14px}}
-.cfg-item{{display:flex;flex-wrap:wrap;align-items:center;gap:10px;padding:12px 0;border-bottom:1px solid rgba(139,92,246,0.04)}}
-.cfg-item:last-child{{border-bottom:none}}
-.cfg-label{{font-weight:700;font-size:14px;color:var(--t1);flex:1;min-width:120px}}
-.cfg-status{{font-size:11px;font-weight:600;padding:3px 10px;border-radius:20px}}
-.cfg-status.on{{background:var(--green-bg);color:var(--green-t)}}
-.cfg-status.off{{background:var(--red-bg);color:var(--red-t)}}
-.btn{{font-family:inherit;font-size:11.5px;font-weight:600;border-radius:8px;padding:7px 14px;cursor:pointer;border:none;transition:0.2s;display:inline-flex;align-items:center;gap:5px}}
-.btn-p{{background:linear-gradient(135deg,#8B5CF6,#6D28D9);color:#fff;box-shadow:0 4px 16px rgba(139,92,246,0.25)}}
-.btn-p:hover{{transform:translateY(-2px)}}
-.btn-g{{background:rgba(139,92,246,0.08);color:var(--accent2);border:1px solid var(--card-b)}}
-.btn-g:hover{{background:rgba(139,92,246,0.15)}}
-.footer{{text-align:center;font-size:10.5px;color:var(--t3);padding-top:16px;border-top:1px solid var(--card-b);margin-top:14px}}
-.footer a{{color:var(--accent2)}}
-@media(max-width:480px){{.cfg-item{{flex-direction:column;align-items:stretch}}}}
-</style>
-</head>
-<body>
-<div class="wrap">
-<div class="brand"><div class="brand-icon"><i class="ti ti-brand-azure"></i></div><div><div class="brand-name">Purple-Panel</div><div class="brand-sub">v1.0 · اشتراک</div></div></div>
-<div id="root"><div style="text-align:center;padding:40px;color:var(--t3)">در حال بارگذاری...</div></div>
-<div class="footer">✨ <a href="https://t.me/AghaBanafshi" target="_blank">@AghaBanafshi</a> · 🟣 <a href="https://github.com/TheAghaBanafshi" target="_blank">github.com/TheAghaBanafshi</a></div>
-</div>
-<script>
-const UUID_KEY='{uuid_key}';
-let savedPw='';
-async function loadData(pw=''){{const url='/api/public/sub/'+UUID_KEY+(pw?'?pw='+encodeURIComponent(pw):'');const r=await fetch(url);return r.json()}}
-function renderLock(name,err=''){{document.getElementById('root').innerHTML=`<div style="max-width:380px;margin:20px auto;background:var(--card);border:1px solid var(--card-b);border-radius:16px;padding:32px 24px;text-align:center"><div style="font-size:20px;margin-bottom:12px">🔒</div><h2>${esc(name)}</h2><p style="color:var(--t3);font-size:12px;margin:8px 0 16px">این گروه با رمز محافظت شده</p><div class="${err?'err':''}" style="color:var(--red-t);font-size:12px;margin-bottom:10px">${err?'رمز اشتباه است':''}</div><input type="password" id="lockPw" placeholder="رمز را وارد کنید" style="width:100%;padding:10px 14px;border-radius:10px;border:1px solid var(--card-b);background:rgba(0,0,0,0.12);color:var(--t1);font-size:14px;text-align:center;margin-bottom:12px;outline:none" onkeydown="if(event.key==='Enter')submitLock()"><button class="btn btn-p" style="width:100%;justify-content:center" onclick="submitLock()">ورود</button></div>`;document.getElementById('lockPw')?.focus()}}
-async function submitLock(){{const pw=document.getElementById('lockPw').value;const data=await loadData(pw);if(data.locked){{renderLock(data.name,'رمز اشتباه است');return}}savedPw=pw;renderContent(data)}}
-function renderContent(d){{window._ppLinks=d.links||[];document.getElementById('root').innerHTML=`<div class="card"><div style="font-size:13px;color:var(--t2);margin-bottom:4px">📁 ${esc(d.name)}</div>${d.desc?`<div style="font-size:11.5px;color:var(--t3);margin-bottom:12px">${esc(d.desc)}</div>`:''}<div style="font-size:11px;color:var(--t3);margin-bottom:12px">🟢 ${d.links.filter(l=>l.active).length} فعال · ${d.links.length} کانفیگ</div>${d.links.map(l=>`<div class="cfg-item"><span class="cfg-label">${esc(l.label)}</span><span class="cfg-status ${l.active?'on':'off'}">${l.active?'فعال':'غیرفعال'}</span><button class="btn btn-g" onclick="navigator.clipboard.writeText('${esc(l.vless_link)}').then(()=>toast('کپی شد','ok'))"><i class="ti ti-copy"></i></button></div>`).join('')}</div>`}}
-function toast(msg,type=''){{const t=document.createElement('div');t.textContent=msg;t.style.cssText='position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:var(--card);border:1px solid var(--card-b);border-radius:10px;padding:10px 18px;font-size:12px;color:var(--t1);z-index:999;box-shadow:0 4px 20px rgba(0,0,0,0.3);animation:fadeIn 0.3s';if(type==='ok')t.style.borderColor='rgba(16,185,129,0.3)';document.body.appendChild(t);setTimeout(()=>t.remove(),2000)}}
-function esc(s){{return String(s||'').replace(/[&<>"']/g,c=>({{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}}[c]))}}
-async function init(){{try{{const data=await loadData();if(data.locked){{renderLock(data.name);return}}renderContent(data)}}catch(e){{document.getElementById('root').innerHTML='<div style="text-align:center;padding:40px;color:var(--red-t)">خطا در بارگذاری</div>'}}}}
-init();
-</script>
-</body></html>"""
-  
