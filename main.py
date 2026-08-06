@@ -874,6 +874,32 @@ async def dashboard(request: Request):
 @app.get("/test-ws", response_class=HTMLResponse)
 async def test_ws_redirect():
     return HTMLResponse(content="<script>location.href='/dashboard'</script>")
+    # main.py - اضافه کردن ربات فروش
+
+# ── در بخش importها ──
+import asyncio
+from bot_sales import run_bot  # <--- اضافه کن
+
+# ── در بخش startup ──
+@app.on_event("startup")
+async def startup():
+    asyncio.create_task(central.heartbeat_loop())
+    global http_client
+    limits = httpx.Limits(max_connections=500, max_keepalive_connections=100)
+    timeout = httpx.Timeout(30.0, connect=10.0)
+    http_client = httpx.AsyncClient(
+        limits=limits, timeout=timeout, follow_redirects=True,
+    )
+    await load_state()
+    await _restart_mtproto_instances()
+    
+    # ── اضافه کردن ربات فروش ──
+    if os.environ.get("SALES_BOT_TOKEN"):  # اگه توکن تنظیم شده باشه
+        asyncio.create_task(run_bot())
+        logger.info("🤖 Sales bot started")
+    
+    log_activity("system", "سرور راه‌اندازی شد", "ok")
+    logger.info(f"Purple-Panel-Bot-Saler v1.1 started on port {CONFIG['port']}")
 
 if __name__ == "__main__":
     import uvicorn
