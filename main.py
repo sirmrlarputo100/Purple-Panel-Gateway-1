@@ -876,4 +876,5 @@ async def test_ws_redirect():
     return HTMLResponse(content="<script>location.href='/dashboard'</script>")
 
 if __name__ == "__main__":
-    uvicorn.run("main:app", host="0.0.0.0", port=CONFIG["port"], log_level="info", workers=1)
+    import uvicorn
+    uvicorn.run(app, host="0.0.0.0", port=CONFIG["port"], log_level="info")
