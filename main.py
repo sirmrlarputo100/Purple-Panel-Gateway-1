@@ -891,7 +891,8 @@ async def startup():
         limits=limits, timeout=timeout, follow_redirects=True,
     )
     await load_state()
-    await _restart_mtproto_instances()
+  
+    # await _restart_mtproto_instances()
     
     # ── اضافه کردن ربات فروش ──
     if os.environ.get("SALES_BOT_TOKEN"):  # اگه توکن تنظیم شده باشه
